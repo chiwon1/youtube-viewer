@@ -1,5 +1,7 @@
 # Twitch Viewer
 
+![Twitch](/twitch.jpg)
+
 ## Installation
 
 ```sh
