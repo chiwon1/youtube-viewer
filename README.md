@@ -42,6 +42,8 @@ $ yarn start (or npm start)
 
 **AJAX 요청은 [`Fetch API`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 혹은 [`axios`](https://github.com/axios/axios)를 이용하세요.** (`axios`는 `package.json`에 추가되어 있습니다.)
 
+React Router의 사용은 자유롭게 선택하여 진행하세요.
+
 - [ ] 첫 페이지의 상단 부분에는 Top Games 정보(게임 이름)을 순위에 따라 10개 보여주어야 합니다.
 - [ ] 첫 페이지의 Top Games 목록 아래에는 가장 첫번째 Top Game의 비디오가 20개 보여야 합니다. 각 비디오는 아래의 정보를 반드시 보여주어야 합니다.
   - [ ] 만든 날짜
