@@ -66,6 +66,9 @@ $ yarn start (or npm start)
 
 과제 프로젝트는 Create React App을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
 
+[Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 Test Code를 찾으실 수 있습니다.
+
 - [ ] Utility 함수가 있다면, 그에 대한 Test Code 작성하기
-- [ ] React Component Test 작성하기 (with Jest, Enzyme etc)
-- [ ] End to End Test 작성하기 (cypress.io)
+- [ ] Reducer 함수 Test Code 작성하기
+- [ ] React Component Test 작성하기
+- [ ] End to End Test 작성하기 ([Cypress.io](https://www.cypress.io/))
