@@ -1,25 +1,23 @@
-# Twitch Viewer
+# Youtube Viewer
 
-![Twitch](/twitch.jpg)
+![Youtube](/youtube.jpg)
 
 ## Installation
 
 ```sh
-$ yarn install (or npm install)
+npm install
 ```
 
 ## Development
 
 ```sh
-$ yarn start (or npm start)
+npm start
 # visit http://localhost:3000
 ```
 
-- HTML 수정: `/public/index.html`를 수정하세요.
-- JS 수정: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업하세요.
-- CSS 수정: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업하세요.
-
-**프로젝트 구조, 코드 스타일, 컴포넌트 디자인, Redux의 적용 방식 등 신중하게 고민하고 작업하시기 바랍니다.**
+- HTML: `/public/index.html` 파일을 이용하여 작업할 수 있습니다.
+- CSS: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
+- JavaScript: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
 
 ## Twitch API
 
@@ -38,10 +36,18 @@ $ yarn start (or npm start)
 - [Twitch Developers Console](https://dev.twitch.tv/console)에서 방금 만든 어플리케이션을 클릭하세요.
 - 가장 아래에 보이는 Client ID를 이용하여 API 호출을 하시면 됩니다.
 
+## React File Structure
+
+- React 문서의 [FAQ](https://reactjs.org/docs/faq-structure.html)를 읽어보거나 검색을 해보시기 바랍니다.
+
+## Reusable Component
+
+- 본인이 작성한 컴포넌트의 재사용성에 대해 깊게 생각해보시기 바랍니다. 다른 상황에 나의 컴포넌트가 사용될 경우 별다른 어려움은 없을지에 대해 생각해보세요.
+
 ## TODO
 
-- **AJAX 요청은 [`Fetch API`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 혹은 [`axios`](https://github.com/axios/axios)를 이용하세요.** (`axios`는 `package.json`에 추가되어 있습니다.)
-- React Router의 사용은 자유롭게 선택하여 진행하세요. 단, URL은 신중하게 결정하시기 바랍니다.
+- **AJAX 요청은 [`Fetch API`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)를 이용하세요.**
+- React Router의 사용은 권장하긴 하지만, 본인 선택에 따라 결정하세요. 단, URL Naming은 반드시 조사 후 결정하시기 바랍니다. (1차적으로 기능구현 작업 후 추가해보는 것도 좋은 방향입니다.)
 
 * [ ] 첫 페이지의 상단 부분에는 Top Games 정보(게임 이름)을 순위에 따라 10개 보여주어야 합니다.
 * [ ] 첫 페이지의 Top Games 목록 아래에는 가장 첫번째 Top Game의 비디오가 20개 보여야 합니다. 각 비디오는 아래의 정보를 반드시 보여주어야 합니다.
@@ -64,7 +70,7 @@ $ yarn start (or npm start)
 
 ### Advanced
 
-과제 프로젝트는 Create React App을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
+과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
 
 [Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 Test Code를 찾으실 수 있습니다.
 
