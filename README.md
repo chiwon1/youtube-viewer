@@ -26,13 +26,13 @@ npm start
 ### Youtube API 발급받기
 
 - [Youtube API Console](https://console.developers.google.com/)로 접속하세요.
-- **"CREATE PROJECT"**를 선택하세요.
+- **CREATE PROJECT**를 선택하세요.
 - 프로젝트 이름을 입력하고, 생성하세요.
 - **ENABLE APIS AND SERVICES** 를 선택하세요.
-- "Youtube" 검색 후, **"YouTube Data API v3"**를 선택하세요.
-- Youtube Data API v3를 **"ENABLE"** 하세요.
-- **좌측 "Credentials" 메뉴**를 선택하세요.
-- **"Create Credentials"**를 선택하세요.
+- "Youtube" 검색 후, **YouTube Data API v3**를 선택하세요.
+- Youtube Data API v3를 **ENABLE** 하세요.
+- **좌측 Credentials 메뉴**를 선택하세요.
+- **Create Credentials**를 선택하세요.
 - 본인의 API KEY를 확인하고, `/src/config/youtube.js`에 붙여넣어 사용하세요.
 
 ## React File Structure
