@@ -19,6 +19,19 @@ npm start
 - CSS: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
 - JavaScript: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
 
+## Before you begin
+
+이번 과제를 시작하기 전에 다음에 대해 반드시 조사해보세요.
+
+- [ ] npm이란 무엇이며 우리는 왜 npm을 사용하는 것일까요? (npm과 yarn은 어떤 차이가 있을까요?)
+- [ ] `node_modules` 디렉토리는 어떤 역할을 하는 것일까요?
+- [ ] `package.json` 파일은 어떤 용도일까요?
+- [ ] `package.json` 파일에 보면 여러 가지 종류의 Meta Data가 있습니다. 그 중 다음 Meta Data들에 대해서 조사해보세요.
+  - `"dependencies"`
+  - `"devDependencies"`
+  - `"scripts"`
+- [ ] `package-lock.json` 혹은 `yarn.lock` 파일의 용도는 무엇일까요?
+
 ## Youtube API
 
 [Youtube API](https://developers.google.com/youtube/v3/docs/search/list)를 이용하여 구현하세요.
