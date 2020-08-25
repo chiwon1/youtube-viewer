@@ -1,24 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import Input from "../shared/Input";
 // import { debounce } from "lodash";
 
-const Input = styled.input`
-  padding: 10px 15px;
-  border: 1px solid #ededed;
-  height: 24px;
-  min-width: 200px;
-  width: calc(100% - 32px);
-  border-radius: 2px;
-  font-size: 16px;
-  letter-spacing: -0.5px;
-  transition: 0.3s all ease;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border: 1px solid #414141;
-  }
-`;
+// ✅ PropTypes는 무슨 용도일까요?
+// 조사해보시고 다른 컴포넌트에도 폭넓게 적용해보세요.
+import PropTypes from "prop-types";
 
 export default function SearchInput({ onChange, placeholder, value }) {
   return (
@@ -30,3 +16,11 @@ export default function SearchInput({ onChange, placeholder, value }) {
     />
   );
 }
+
+// PropTypes tell other developers what `props` a component expects
+// Warnings will be shown in the console when the defined rules are violated
+SearchInput.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string.isRequired,
+};
