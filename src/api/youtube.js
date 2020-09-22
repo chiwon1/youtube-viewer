@@ -17,12 +17,8 @@ export const searchYoutube = async (options) => {
     options
   )}`;
 
-  try {
-    const res = await fetch(YOUTUBE_URL);
-    const data = await res.json();
+  const res = await fetch(YOUTUBE_URL);
+  const data = await res.json();
 
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
+  return data;
 };
