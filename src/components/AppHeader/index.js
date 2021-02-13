@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.png";
 import SearchInput from "../SearchInput";
 import Container from "../shared/Container";
 import Heading from "../shared/Heading";
@@ -32,7 +32,7 @@ const Header = styled.header`
   }
 
   img {
-    height: 30px;
+    height: 15px;
   }
 
   .input-container {

@@ -19,6 +19,10 @@ npm start
 - CSS: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
 - JavaScript: `/src` 디렉토리 내에서 자유롭게 파일/폴더를 생성/수정하여 작업할 수 있습니다.
 
+### Reference
+
+- [Create React App](https://github.com/facebook/create-react-app)
+
 ## Before you begin
 
 이번 과제를 시작하기 전에 다음에 대해 반드시 조사해보세요.
@@ -81,12 +85,9 @@ npm start
 
 ### Advanced
 
-과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
-
-[Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 Test Code를 찾으실 수 있습니다.
-
 - [ ] Utility 함수가 있다면, 그에 대한 Test Code 작성하기
+  - 과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
+  - [Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 Test Code를 찾으실 수 있습니다.
 - [ ] React Component Test 작성하기
 - [ ] End to End Test 작성하기 ([Cypress.io](https://www.cypress.io/))
-
-* [ ] Styled Component의 장점과 단점은 무엇일까요?
+- [ ] Styled Component의 장점과 단점은 무엇일까요?
