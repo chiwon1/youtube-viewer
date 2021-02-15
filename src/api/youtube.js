@@ -29,7 +29,13 @@ export const searchYoutube = async (options) => {
     return data;
   }
 
-  const res = await fetch("./data.json");
+  // `data.json` is located in /public directory.
+  const res = await fetch("/data.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
   const data = await res.json();
 
   return data;
