@@ -87,9 +87,10 @@ npm start
 
 ### Advanced
 
+> 과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
+
 - [ ] Utility 함수가 있다면, 그에 대한 Test Code 작성하기
-  - 과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
 - [ ] React Component Test 작성하기
-  - [Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 Test Code를 찾으실 수 있습니다.
+  - [Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 예시를 찾을 수 있습니다.
 - [ ] End to End Test 작성하기 ([Cypress.io](https://www.cypress.io/))
 - [ ] Styled Component의 장점과 단점은 무엇일까요?
