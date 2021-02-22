@@ -84,6 +84,7 @@ npm start
   - [ ] 그 외 개인적으로 추가하고 싶은 사항
 * [ ] Modal의 바깥 부분 혹은 닫는 버튼을 클릭한다면 모달은 사라져야 합니다.
 * [ ] 첫 페이지 로딩 시에 사용자에게 환영메시지를 보여주세요. 환영메시지 내용은 여러분께서 작성하셔도 되지만, 반드시 모달창을 이용해서 보여주어야 합니다. _모달창은 이전 단계에서 구현했던 것처럼 바깥 부분이나 닫는 버튼을 클릭하면 사라져야 합니다._ (재사용성에 대해 고민해보세요.)
+* [ ] 환경변수란 무엇인지 조사하고, 이번 과제 프로젝트에 적용시켜 보세요. [Adding Custom Environment Variables in Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/) 참고
 
 ### Advanced
 
