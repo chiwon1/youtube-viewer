@@ -2,7 +2,7 @@ import { YOUTUBE_API_KEY } from "../config/youtube";
 
 // true: use youtube api.
 // false: use mock data (data.json)
-// Toggle the value per your need.
+// Toggle the value depends on your situation.
 const useYoutube = true;
 
 function mapObjectToQueryStrings(obj) {

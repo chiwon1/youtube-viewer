@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import SearchInput from "../SearchInput";
@@ -18,6 +19,11 @@ const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 2em 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000000;
   }
 
   .brand {
@@ -45,10 +51,12 @@ export default function AppHeader() {
     <Header>
       <Container>
         <section>
-          <div className="brand">
-            <img src={logo} alt="logo" />
-            <Heading>Youtube Viewer</Heading>
-          </div>
+          <Link to="/videos">
+            <div className="brand">
+              <img src={logo} alt="logo" />
+              <Heading>Youtube Viewer</Heading>
+            </div>
+          </Link>
           <div className="input-container">
             <SearchInput
               placeholder="Youtube 검색"

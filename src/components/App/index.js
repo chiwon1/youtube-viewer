@@ -1,18 +1,10 @@
 import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import styled from "styled-components";
+
 import VideoList from "../VideoList";
 import AppHeader from "../AppHeader";
-import styled from "styled-components";
 import Container from "../shared/Container";
-
-/*
-
-  ✅ Styled Components란 무엇인지 조사해보고 활용해보세요.
-
-  Doc: https://styled-components.com/
-  Motivation: https://styled-components.com/docs/basics#motivation
-  CSS in JS: https://mxstbr.com/thoughts/css-in-js
-
- */
 
 const Main = styled.main`
   margin-top: 110px;
@@ -24,7 +16,17 @@ export default function App() {
       <AppHeader />
       <Main>
         <Container>
-          <VideoList />
+          <Switch>
+            <Route path="/videos" exact>
+              <VideoList />
+            </Route>
+            <Route path="/videos/:videoId">
+              <div>🖥 Use a modal to display video details!</div>
+            </Route>
+            <Route path="/" exact>
+              <Redirect to="/videos" />
+            </Route>
+          </Switch>
         </Container>
       </Main>
     </>
