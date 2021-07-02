@@ -88,3 +88,4 @@ npm start
 - 환경변수에 대해 리서치하고, 나의 작업물에 적용 해보기 [Adding Custom Environment Variables in Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/) 참고
 - [Styled Component](https://styled-components.com/docs/basics#motivation)의 장단점에 대해 리서치하고 나의 작업물 리뷰해보기
 - `package.json`에 대해 리서치 해보기
+- Client Side Routing과 Server Side Routing의 차이점에 대해 리서치 해보기
