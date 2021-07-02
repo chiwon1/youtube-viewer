@@ -75,16 +75,11 @@ npm start
 * [ ] Modal의 바깥 부분 혹은 닫는 버튼을 클릭한다면 모달은 사라져야 합니다.
 * [ ] 첫 페이지 로딩 시에 사용자에게 환영메시지를 보여주세요. 환영메시지 내용은 여러분께서 작성하셔도 되지만, 반드시 모달창을 이용해서 보여주어야 합니다. _모달창은 이전 단계에서 구현했던 것처럼 바깥 부분이나 닫는 버튼을 클릭하면 사라져야 합니다._ (재사용성에 대해 고민해보세요.)
 
-### Advanced
-
-> 과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
+## After
 
 - [ ] React Component Test 작성하기
   - [Redux 저장소의 예제](https://github.com/reduxjs/redux/tree/master/examples/shopping-cart/src)를 보시면 참고할 만한 예시를 찾을 수 있습니다.
-- [ ] End to End Test 작성하기 ([Cypress.io](https://www.cypress.io/))
-
-## After
-
+  - 과제 프로젝트는 [Create React App](https://create-react-app.dev/)을 이용하여 만들어졌기 때문에, Create React App의 [Test 작성하기](https://facebook.github.io/create-react-app/docs/running-tests) 페이지를 참고하여 Test Code를 작성하시기 바랍니다.
 - 환경변수에 대해 리서치하고, 나의 작업물에 적용 해보기 [Adding Custom Environment Variables in Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables/) 참고
 - [Styled Component](https://styled-components.com/docs/basics#motivation)의 장단점에 대해 리서치하고 나의 작업물 리뷰해보기
 - `package.json`에 대해 리서치 해보기
