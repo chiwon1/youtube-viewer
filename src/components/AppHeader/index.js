@@ -46,7 +46,7 @@ const Header = styled.header`
   }
 `;
 
-export default function AppHeader() {
+export default function AppHeader({ handleSearchInput }) {
   return (
     <Header>
       <Container>

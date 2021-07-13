@@ -16,15 +16,16 @@ const EntryWrapper = styled.div`
   }
 `;
 
-export default function VideoListEntry() {
+export default function VideoListEntry({ title, description, thumbnails, publishedAt }) {
   return (
     <EntryWrapper>
       <div>
-        <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg" alt="" />
+        <img src={thumbnails.default.url} alt={title} />
       </div>
       <div className="contents">
-        <div>Video Title</div>
-        <div>Video Description</div>
+        <div>{title}</div>
+        <div>{description}</div>
+        <div>{publishedAt}</div>
       </div>
     </EntryWrapper>
   );

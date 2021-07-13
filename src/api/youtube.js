@@ -3,7 +3,7 @@ import { YOUTUBE_API_KEY } from "../config/youtube";
 // true: use youtube api.
 // false: use mock data (data.json)
 // Toggle the value depends on your situation.
-const useYoutube = true;
+const useYoutube = false;
 
 function mapObjectToQueryStrings(obj) {
   let result = "";
@@ -13,6 +13,8 @@ function mapObjectToQueryStrings(obj) {
       result += `&${prop}=${obj[prop]}`;
     }
   }
+
+  console.log('result');
 
   return result;
 }

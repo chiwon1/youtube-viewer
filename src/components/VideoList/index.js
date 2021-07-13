@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import VideoListEntry from "../VideoListEntry";
+import { searchYoutube } from '../../api/youtube';
 
 const Wrapper = styled.div`
   display: grid;
@@ -13,25 +14,36 @@ const Wrapper = styled.div`
 `;
 
 export default function VideoList() {
+  const options = null;
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function getVideos(options) {
+      const list = await searchYoutube(options);
+
+      console.log('list', list);
+
+      setItems(list.items);
+    }
+
+    getVideos(options);
+  }, [options]);
+
   return (
     <Wrapper>
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
-      <VideoListEntry />
+      {items.map(({ id, snippet: { title, description, thumbnails, publishedAt } }) => {
+          return (
+            <VideoListEntry
+              key={id.videoId}
+              title={title}
+              description={description}
+              thumbnails={thumbnails}
+              publishedAt={publishedAt}
+            />
+          );
+        })
+      }
     </Wrapper>
   );
 }
