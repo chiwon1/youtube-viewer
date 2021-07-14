@@ -17,6 +17,20 @@ const EntryWrapper = styled.div`
 `;
 
 export default function VideoListEntry({ title, description, thumbnails, publishedAt }) {
+  function convertDateFormat(date) {
+    let d = new Date(date.slice(0, 10)),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('.');
+  }
+
   return (
     <EntryWrapper>
       <div>
@@ -24,8 +38,8 @@ export default function VideoListEntry({ title, description, thumbnails, publish
       </div>
       <div className="contents">
         <div>{title}</div>
-        <div>{description}</div>
-        <div>{publishedAt}</div>
+        <div>{description.length > 30 ? description.slice(0, 30) + "..." : description}</div>
+        <div>{convertDateFormat(publishedAt)}</div>
       </div>
     </EntryWrapper>
   );
