@@ -13,9 +13,7 @@ const Wrapper = styled.div`
   row-gap: 20px;
 `;
 
-export default function VideoList() {
-  const options = null;
-
+export default function VideoList({ options }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {

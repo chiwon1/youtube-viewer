@@ -46,7 +46,8 @@ const Header = styled.header`
   }
 `;
 
-export default function AppHeader({ handleSearchInput }) {
+export default function AppHeader({ handleSearchWord }) {
+
   return (
     <Header>
       <Container>
@@ -60,9 +61,10 @@ export default function AppHeader({ handleSearchInput }) {
           <div className="input-container">
             <SearchInput
               placeholder="Youtube 검색"
-              onChange={(searchKeyword) => {
-                console.log(searchKeyword);
-              }}
+              handleSearchWord={handleSearchWord}
+              // onChange={(searchKeyword) => {
+              //   console.log(searchKeyword);
+              // }}
             />
           </div>
         </section>

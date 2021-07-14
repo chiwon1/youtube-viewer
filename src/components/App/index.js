@@ -11,14 +11,24 @@ const Main = styled.main`
 `;
 
 export default function App() {
+  const [searchWord, setSearchWord] = useState('');
+
   return (
     <>
-      <AppHeader />
+      <AppHeader
+        handleSearchWord={(searchKeyword) => {
+          setSearchWord(searchKeyword);
+        }}
+      />
       <Main>
         <Container>
           <Switch>
             <Route path="/videos" exact>
-              <VideoList />
+              <VideoList options={{
+                q: searchWord,
+                type: "video",
+                maxResults: 10,
+              }}/>
             </Route>
             <Route path="/videos/:videoId">
               <div>🖥 Use a modal to display video details!</div>
