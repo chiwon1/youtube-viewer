@@ -14,8 +14,6 @@ function mapObjectToQueryStrings(obj) {
     }
   }
 
-  console.log('result', result);
-
   return result;
 }
 
@@ -40,5 +38,9 @@ export const searchYoutube = async (options) => {
   });
   const data = await res.json();
 
-  return data;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(data);
+    }, Math.random() * 1000);
+  });
 };

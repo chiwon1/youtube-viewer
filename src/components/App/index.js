@@ -24,11 +24,9 @@ export default function App() {
         <Container>
           <Switch>
             <Route path="/videos" exact>
-              <VideoList options={{
-                q: searchWord,
-                type: "video",
-                maxResults: 10,
-              }}/>
+              <VideoList
+                searchWord={searchWord}
+              />
             </Route>
             <Route path="/videos/:videoId">
               <div>🖥 Use a modal to display video details!</div>

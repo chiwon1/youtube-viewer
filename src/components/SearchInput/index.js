@@ -6,9 +6,9 @@ import Input from "../shared/Input";
 import PropTypes from "prop-types";
 
 export default function SearchInput({ handleSearchWord, placeholder }) {
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState();
 
-  function handleSubmit(ev) {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
     handleSearchWord(userInput);
   }

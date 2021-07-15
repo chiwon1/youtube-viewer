@@ -62,9 +62,6 @@ export default function AppHeader({ handleSearchWord }) {
             <SearchInput
               placeholder="Youtube 검색"
               handleSearchWord={handleSearchWord}
-              // onChange={(searchKeyword) => {
-              //   console.log(searchKeyword);
-              // }}
             />
           </div>
         </section>
