@@ -22,18 +22,20 @@ const EntryWrapper = styled.div`
 `;
 
 export default function VideoListEntry({ videoInfo }) {
-  const convertDateFormat = (input) => {
-    const date = new Date(input.slice(0, 10));
-    let month = '' + (date.getMonth() + 1);
-    let day = '' + date.getDate();
+  const convertDateFormat = (inputDate) => {
+    const date = new Date(inputDate);
     const year = date.getFullYear();
 
-    if (month.length < 2) month = '0' + month;
+    let month = String(date.getMonth() + 1);
+    if (month.length < 2) month = "0" + month;
 
-    if (day.length < 2) day = '0' + day;
+    let day = String(date.getDate());
+    if (day.length < 2) day = "0" + day;
 
-    return [year, month, day].join('.');
+    return [year, month, day].join(".");
   }
+
+  const DESCRIPTION_LENGTH = 30;
 
   return (
     <EntryWrapper>
@@ -47,11 +49,9 @@ export default function VideoListEntry({ videoInfo }) {
         <div>{videoInfo.title}</div>
         <EllipsisText
           text={videoInfo.description}
-          length={30}
+          length={DESCRIPTION_LENGTH}
         />
-        <div>
-          {convertDateFormat(videoInfo.publishedAt)}
-        </div>
+        <div>{convertDateFormat(videoInfo.publishedAt)}</div>
       </div>
     </EntryWrapper>
   );

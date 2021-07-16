@@ -11,14 +11,14 @@ const Main = styled.main`
 `;
 
 export default function App() {
-  const [searchWord, setSearchWord] = useState('');
+  const [searchWord, setSearchWord] = useState("");
 
   return (
     <>
       <AppHeader
-        handleSearchWord={(searchKeyword) => {
-          setSearchWord(searchKeyword);
-        }}
+        handleSearchWord={
+          (searchKeyword) => setSearchWord(searchKeyword)
+        }
       />
       <Main>
         <Container>

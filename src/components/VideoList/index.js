@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import VideoListEntry from "../VideoListEntry";
-import { searchYoutube } from '../../api/youtube';
-import { throttle } from 'lodash';
+import { searchYoutube } from "../../api/youtube";
+import { throttle } from "lodash";
 
 const Wrapper = styled.div`
   display: grid;
@@ -28,17 +28,19 @@ const Wrapper = styled.div`
 `;
 
 export default function VideoList({ searchWord }) {
-  const [isReloadNeeded, setIsReloadNeeded] = useState(false);
+  const THROTTLE_WAIT = 300;
+  const MAX_RESULTS = 15;
+  const SEARCH_TYPE = "video";
+  const SCROLL = "scroll";
+
+  const [isLoading, setIsLoading] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [videoList, setVideoList] = useState([]);
   const [options, setOptions] = useState({
     q: searchWord,
-    maxResults: 15,
-    type: 'video',
+    maxResults: MAX_RESULTS,
+    type: SEARCH_TYPE,
   });
-
-  const THROTTLE_WAIT = 300;
-  const SCROLL = 'scroll';
 
   useEffect(() => {
     setOptions({
@@ -46,14 +48,14 @@ export default function VideoList({ searchWord }) {
       q: searchWord,
     });
 
-    setIsReloadNeeded(true);
+    setIsLoading(true);
   }, [searchWord]);
 
   useEffect(() => {
     loadVideos();
 
-    setIsReloadNeeded(false);
-  }, [isReloadNeeded]);
+    setIsLoading(false);
+  }, [isLoading]);
 
   useEffect(() => {
     window.addEventListener(SCROLL, handleScrollThrottle);
@@ -67,7 +69,6 @@ export default function VideoList({ searchWord }) {
     const isScrolledToEnd = (window.innerHeight + document.documentElement.scrollTop) >= (document.documentElement.offsetHeight);
 
     if (isScrolledToEnd) setIsScrolled(true);
-
   }, THROTTLE_WAIT);
 
   useEffect(() => {
@@ -77,35 +78,39 @@ export default function VideoList({ searchWord }) {
   }, [isScrolled]);
 
   const loadVideos = async () => {
-    const list = await searchYoutube(options);
+    try {
+      const list = await searchYoutube(options);
 
-    if (list.nextPageToken) {
-      setOptions(prev => ({
-        ...prev,
-        pageToken: list.nextPageToken,
-      }));
-    }
+      if (list.nextPageToken) {
+        setOptions(prev => ({
+          ...prev,
+          pageToken: list.nextPageToken,
+        }));
+      }
 
-    if (isScrolled) {
-      setVideoList(prev =>[
-        ...prev,
-        ...list.items
-      ]);
+      if (isScrolled) {
+        setVideoList(prev => [
+          ...prev,
+          ...list.items
+        ]);
 
-      setIsScrolled(false);
-    } else {
-      setVideoList(list.items);
+        setIsScrolled(false);
+      } else {
+        setVideoList(list.items);
+      }
+    } catch (err) {
+      console.log("err", err);
     }
   }
 
   return (
     <Wrapper>
-      {videoList.map((video) =>
+      {videoList.map((data) => (
         <VideoListEntry
-          key={video.etag}
-          videoInfo={video.snippet}
-        />)
-      }
+          key={data.etag}
+          videoInfo={data.snippet}
+        />
+      ))}
     </Wrapper>
   );
 }

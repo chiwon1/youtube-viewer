@@ -47,6 +47,8 @@ const Header = styled.header`
 `;
 
 export default function AppHeader({ handleSearchWord }) {
+  const HEADING_PHRASE = "Youtube Viewer"
+  const SEARCH_INPUT_PLACEHOLDER = "Youtube 검색"
 
   return (
     <Header>
@@ -55,12 +57,12 @@ export default function AppHeader({ handleSearchWord }) {
           <Link to="/videos">
             <div className="brand">
               <img src={logo} alt="logo" />
-              <Heading>Youtube Viewer</Heading>
+              <Heading>{HEADING_PHRASE}</Heading>
             </div>
           </Link>
           <div className="input-container">
             <SearchInput
-              placeholder="Youtube 검색"
+              placeholder={SEARCH_INPUT_PLACEHOLDER}
               handleSearchWord={handleSearchWord}
             />
           </div>
