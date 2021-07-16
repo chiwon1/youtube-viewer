@@ -3,6 +3,7 @@ import styled from "styled-components";
 import VideoListEntry from "../VideoListEntry";
 import { searchYoutube } from "../../api/youtube";
 import { throttle } from "lodash";
+import useStateCallback from '../../Hooks/useStateCallback';
 
 const Wrapper = styled.div`
   display: grid;
@@ -33,10 +34,9 @@ export default function VideoList({ searchWord }) {
   const SEARCH_TYPE = "video";
   const SCROLL = "scroll";
 
-  const [isLoading, setIsLoading] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [videoList, setVideoList] = useState([]);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useStateCallback({
     q: searchWord,
     maxResults: MAX_RESULTS,
     type: SEARCH_TYPE,
@@ -46,16 +46,8 @@ export default function VideoList({ searchWord }) {
     setOptions({
       ...options,
       q: searchWord,
-    });
-
-    setIsLoading(true);
+    }, (options) => loadVideos(options));
   }, [searchWord]);
-
-  useEffect(() => {
-    loadVideos();
-
-    setIsLoading(false);
-  }, [isLoading]);
 
   useEffect(() => {
     window.addEventListener(SCROLL, handleScrollThrottle);
@@ -74,10 +66,10 @@ export default function VideoList({ searchWord }) {
   useEffect(() => {
     if (!isScrolled) return;
 
-    loadVideos();
+    loadVideos(options);
   }, [isScrolled]);
 
-  const loadVideos = async () => {
+  const loadVideos = async (options) => {
     try {
       const list = await searchYoutube(options);
 
