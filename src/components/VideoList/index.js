@@ -71,7 +71,7 @@ export default function VideoList({ searchWord }) {
 
   const loadVideos = async (options) => {
     try {
-      const list = await searchYoutube(options);
+      const list = await searchYoutube(options, "search");
 
       if (list.nextPageToken) {
         setOptions(prev => ({
@@ -99,8 +99,9 @@ export default function VideoList({ searchWord }) {
     <Wrapper>
       {videoList.map((data) => (
         <VideoListEntry
-          key={data.etag}
+          key={data.id.videoId}
           videoInfo={data.snippet}
+          videoId={data.id.videoId}
         />
       ))}
     </Wrapper>

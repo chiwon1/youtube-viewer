@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import EllipsisText from "react-ellipsis-text";
+import Modal from "../Modal";
+import ModalDetail from '../ModalDetail/ModalDetail';
 
 const EntryWrapper = styled.div`
   width: 100%;
@@ -21,27 +23,25 @@ const EntryWrapper = styled.div`
   }
 `;
 
-export default function VideoListEntry({ videoInfo }) {
-  const convertDateFormat = (inputDate) => {
-    const date = new Date(inputDate);
-    const year = date.getFullYear();
+export default function VideoListEntry({ videoInfo, videoId }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    let month = String(date.getMonth() + 1);
-    if (month.length < 2) month = "0" + month;
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
 
-    let day = String(date.getDate());
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join(".");
+  const handleCloseModal = (ev) => {
+    ev.stopPropagation();
+    setIsModalOpen(false);
   }
 
   const DESCRIPTION_LENGTH = 30;
 
   return (
-    <EntryWrapper>
+    <EntryWrapper onClick={handleOpenModal}>
       <div>
         <img
-          src={videoInfo.thumbnails.default.url}
+          src={videoInfo.thumbnails.high.url}
           alt={videoInfo.title}
         />
       </div>
@@ -51,8 +51,15 @@ export default function VideoListEntry({ videoInfo }) {
           text={videoInfo.description}
           length={DESCRIPTION_LENGTH}
         />
-        <div>{convertDateFormat(videoInfo.publishedAt)}</div>
+        <div>{videoInfo.publishedAt.slice(0, 10)}</div>
       </div>
+      <Modal
+        isModalOpen={isModalOpen}
+        onClickCloseModal={handleCloseModal}
+        header={videoInfo.title}
+      >
+        <ModalDetail videoId={videoId}/>
+      </Modal>
     </EntryWrapper>
   );
 }

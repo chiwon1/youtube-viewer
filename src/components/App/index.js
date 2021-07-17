@@ -15,18 +15,12 @@ export default function App() {
 
   return (
     <>
-      <AppHeader
-        handleSearchWord={
-          (searchKeyword) => setSearchWord(searchKeyword)
-        }
-      />
+      <AppHeader handleSearchWord={(searchKeyword) => setSearchWord(searchKeyword)}/>
       <Main>
         <Container>
           <Switch>
             <Route path="/videos" exact>
-              <VideoList
-                searchWord={searchWord}
-              />
+              <VideoList searchWord={searchWord} />
             </Route>
             <Route path="/videos/:videoId">
               <div>🖥 Use a modal to display video details!</div>

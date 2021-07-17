@@ -17,9 +17,9 @@ function mapObjectToQueryStrings(obj) {
   return result;
 }
 
-export const searchYoutube = async (options) => {
+export const searchYoutube = async (options, searchType) => {
   if (useYoutube) {
-    const YOUTUBE_URL = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&part=snippet${mapObjectToQueryStrings(
+    const YOUTUBE_URL = `https://www.googleapis.com/youtube/v3/${searchType}?key=${YOUTUBE_API_KEY}&part=snippet${mapObjectToQueryStrings(
       options
     )}`;
 

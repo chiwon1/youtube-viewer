@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export default function useStateCallback(initialState) {
   const [state, setState] = useState(initialState);
