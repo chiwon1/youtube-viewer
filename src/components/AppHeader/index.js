@@ -46,9 +46,10 @@ const Header = styled.header`
   }
 `;
 
+const HEADING_PHRASE = "Youtube Viewer"
+const SEARCH_INPUT_PLACEHOLDER = "Youtube 검색"
+
 export default function AppHeader({ handleSearchWord }) {
-  const HEADING_PHRASE = "Youtube Viewer"
-  const SEARCH_INPUT_PLACEHOLDER = "Youtube 검색"
 
   return (
     <Header>

@@ -28,12 +28,13 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function VideoList({ searchWord }) {
-  const THROTTLE_WAIT = 300;
-  const MAX_RESULTS = 15;
-  const SEARCH_TYPE = "video";
-  const SCROLL = "scroll";
+const THROTTLE_WAIT = 300;
+const MAX_RESULTS = 15;
+const SEARCH_TYPE = "video";
+const SEARCH = "search"
+const SCROLL = "scroll";
 
+export default function VideoList({ searchWord }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [videoList, setVideoList] = useState([]);
   const [options, setOptions] = useStateCallback({
@@ -71,7 +72,7 @@ export default function VideoList({ searchWord }) {
 
   const loadVideos = async (options) => {
     try {
-      const list = await searchYoutube(options, "search");
+      const list = await searchYoutube(options, SEARCH);
 
       if (list.nextPageToken) {
         setOptions(prev => ({
