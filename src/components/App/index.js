@@ -22,9 +22,6 @@ export default function App() {
             <Route path="/videos" exact>
               <VideoList searchWord={searchWord} />
             </Route>
-            <Route path="/videos/:videoId">
-              <div>🖥 Use a modal to display video details!</div>
-            </Route>
             <Route path="/" exact>
               <Redirect to="/videos" />
             </Route>
