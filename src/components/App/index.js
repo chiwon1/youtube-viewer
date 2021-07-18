@@ -15,15 +15,15 @@ export default function App() {
 
   return (
     <>
-      <AppHeader handleSearchWord={(searchKeyword) => setSearchWord(searchKeyword)}/>
+      <AppHeader handleSearchWord={(searchKeyword) => setSearchWord(searchKeyword)} />
       <Main>
         <Container>
           <Switch>
-            <Route path="/videos" exact>
-              <VideoList searchWord={searchWord} />
-            </Route>
-            <Route path="/" exact>
+            <Route exact path="/">
               <Redirect to="/videos" />
+            </Route>
+            <Route exact path="/videos">
+              <VideoList searchWord={searchWord} />
             </Route>
           </Switch>
         </Container>

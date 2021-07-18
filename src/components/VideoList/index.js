@@ -43,6 +43,34 @@ export default function VideoList({ searchWord }) {
     type: SEARCH_TYPE,
   });
 
+  const loadVideos = async () => {
+    const list = await searchYoutube(options, SEARCH);
+
+    if (list.nextPageToken) {
+      setOptions(prev => ({
+        ...prev,
+        pageToken: list.nextPageToken,
+      }));
+    }
+
+    if (isScrolled) {
+      setVideoList(prev => [
+        ...prev,
+        ...list.items
+      ]);
+
+      setIsScrolled(false);
+    } else {
+      setVideoList(list.items);
+    }
+  }
+
+  const handleScrollThrottle = throttle(() => {
+    const isScrolledToEnd = (window.innerHeight + document.documentElement.scrollTop) >= (document.documentElement.offsetHeight);
+
+    if (isScrolledToEnd) setIsScrolled(true);
+  }, THROTTLE_WAIT);
+
   useEffect(() => {
     setOptions({
       ...options,
@@ -66,45 +94,17 @@ export default function VideoList({ searchWord }) {
     };
   }, [handleScrollThrottle]);
 
-  const handleScrollThrottle = throttle(() => {
-    const isScrolledToEnd = (window.innerHeight + document.documentElement.scrollTop) >= (document.documentElement.offsetHeight);
-
-    if (isScrolledToEnd) setIsScrolled(true);
-  }, THROTTLE_WAIT);
-
   useEffect(() => {
     if (!isScrolled) return;
 
     loadVideos(options);
   }, [isScrolled]);
 
-  const loadVideos = async () => {
-    const list = await searchYoutube(options, SEARCH);
-
-    if (list.nextPageToken) {
-      setOptions(prev => ({
-        ...prev,
-        pageToken: list.nextPageToken,
-      }));
-    }
-
-    if (isScrolled) {
-      setVideoList(prev => [
-        ...prev,
-        ...list.items
-      ]);
-
-      setIsScrolled(false);
-    } else {
-      setVideoList(list.items);
-    }
-  }
-
   return (
     <Wrapper>
       {videoList.map((data) => (
         <VideoListEntry
-          key={data.id.videoId}
+          key={data.etag}
           videoInfo={data.snippet}
           videoId={data.id.videoId}
         />
