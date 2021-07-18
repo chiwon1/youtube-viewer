@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 const THROTTLE_WAIT = 300;
 const MAX_RESULTS = 15;
 const SEARCH_TYPE = "video";
-const SEARCH = "search"
+const SEARCH = "search";
 const SCROLL = "scroll";
 
 export default function VideoList({ searchWord }) {
@@ -56,7 +56,7 @@ export default function VideoList({ searchWord }) {
     return () => {
       window.removeEventListener(SCROLL, handleScrollThrottle);
     };
-  }, []);
+  }, [handleScrollThrottle]);
 
   const handleScrollThrottle = throttle(() => {
     const isScrolledToEnd = (window.innerHeight + document.documentElement.scrollTop) >= (document.documentElement.offsetHeight);
@@ -71,28 +71,24 @@ export default function VideoList({ searchWord }) {
   }, [isScrolled]);
 
   const loadVideos = async (options) => {
-    try {
-      const list = await searchYoutube(options, SEARCH);
+    const list = await searchYoutube(options, SEARCH);
 
-      if (list.nextPageToken) {
-        setOptions(prev => ({
-          ...prev,
-          pageToken: list.nextPageToken,
-        }));
-      }
+    if (list.nextPageToken) {
+      setOptions(prev => ({
+        ...prev,
+        pageToken: list.nextPageToken,
+      }));
+    }
 
-      if (isScrolled) {
-        setVideoList(prev => [
-          ...prev,
-          ...list.items
-        ]);
+    if (isScrolled) {
+      setVideoList(prev => [
+        ...prev,
+        ...list.items
+      ]);
 
-        setIsScrolled(false);
-      } else {
-        setVideoList(list.items);
-      }
-    } catch (err) {
-      console.log("err", err);
+      setIsScrolled(false);
+    } else {
+      setVideoList(list.items);
     }
   }
 

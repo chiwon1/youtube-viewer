@@ -4,26 +4,20 @@ import { searchYoutube } from "../../api/youtube";
 export default function ModalDetail({ videoId }) {
   const [videoDetails, setVideoDetails] = useState(null);
 
-  const option = {
-    id: videoId,
-  }
-
   useEffect(() => {
-    getVideoDetails();
+    fetchVideoDetails();
   }, [videoId]);
 
-  const getVideoDetails = async () => {
-    try {
-      const data = await searchYoutube(option, "videos");
-
-      const { title, description, publishedAt } = await data.items[0].snippet;
-
-      const videoDetailsFetched = { title, description, publishedAt };
-
-      setVideoDetails(videoDetailsFetched);
-    } catch (err) {
-      console.log('err', err);
+  const fetchVideoDetails = async () => {
+    const option = {
+      id: videoId,
     }
+
+    const data = await searchYoutube(option, "videos");
+
+    const videoDetailsFetched = await data.items[0].snippet;
+
+    setVideoDetails(videoDetailsFetched);
   };
 
   return (
